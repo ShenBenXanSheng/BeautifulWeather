@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shenben="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="weatherDaily"
+            type="com.example.beautifulweather.bean.WeatherDailyBean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:id="@+id/wpDataTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{weatherDaily.date}"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/wpCoverIv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    shenben:cover="@{weatherDaily.skyCover}" />
+
+                <TextView
+                    android:id="@+id/wpWeatherTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toEndOf="@id/wpCoverIv"
+                    android:gravity="center"
+                    android:text="@{weatherDaily.skycon}"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/wpTemperatureTv"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:gravity="center"
+                android:text="@{weatherDaily.temp}"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

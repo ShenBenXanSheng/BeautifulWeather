@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/shape_dialog_his.xml" value="0.132" />
+        <entry key="app/src/main/res/layout/activity_base.xml" value="0.182518115942029" />
+        <entry key="app/src/main/res/layout/activity_city.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_city_success.xml" value="0.18206521739130435" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main_success.xml" value="0.182518115942029" />
+        <entry key="app/src/main/res/layout/activity_weather.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dialog_clear_history.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_city.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_weather_nav.xml" value="0.18206521739130435" />
+        <entry key="app/src/main/res/layout/item_weather_prediction.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/state_empty.xml" value="0.182518115942029" />
+        <entry key="app/src/main/res/layout/state_error.xml" value="0.182518115942029" />
+        <entry key="app/src/main/res/layout/state_loading.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

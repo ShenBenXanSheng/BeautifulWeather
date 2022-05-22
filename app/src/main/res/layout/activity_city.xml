@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/city"
+
+    tools:context=".activity.CityActivity">
+
+    <RelativeLayout
+        android:id="@+id/cityEditContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/citySearchEd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:hint="搜索城市"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="20dp"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/cityEditCleanIv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="15dp"
+            android:src="@mipmap/search_cancal"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/activityContainerFL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cityEditContainer">
+
+    </FrameLayout>
+
+</RelativeLayout>
