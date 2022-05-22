@@ -17,312 +17,313 @@
         android:background="#efefef"
         tools:context=".activity.WeatherActivity">
 
-<com.scwang.smart.refresh.layout.SmartRefreshLayout
-    android:id="@+id/weatherSmartRefresh"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/weatherSmartRefresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.appbar.AppBarLayout
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="match_parent"
                 android:fitsSystemWindows="true">
 
-                <com.google.android.material.appbar.CollapsingToolbarLayout
-                    android:id="@+id/weatherTitleBar"
+                <com.google.android.material.appbar.AppBarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true"
-                    android:transitionName="cityNameTn"
-                    app:collapsedTitleTextAppearance="@style/Toolbar.closeTitleText"
-                    app:expandedTitleGravity="top|center"
-                    app:expandedTitleTextAppearance="@style/Toolbar.openTitleText"
-                    app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
-                    app:title="@{weatherRealTime.cityName}">
+                    android:layout_height="500dp"
+                    android:fitsSystemWindows="true">
 
-
-                    <ImageView
-
-                        android:id="@+id/weatherCoverIv"
+                    <com.google.android.material.appbar.CollapsingToolbarLayout
+                        android:id="@+id/weatherTitleBar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fitsSystemWindows="true"
-                        android:scaleType="centerCrop"
-                        app:layout_collapseMode="parallax"
-                        shenben:bigCover="@{weatherRealTime.cover}" />
-
-                    <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/weatherToolbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        app:layout_collapseMode="pin"
-                        app:navigationIcon="@mipmap/back"
-                        app:titleTextColor="@color/white" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="vertical"
-                        app:layout_collapseMode="none">
+                        android:transitionName="cityNameTn"
+                        app:collapsedTitleTextAppearance="@style/Toolbar.closeTitleText"
+                        app:expandedTitleGravity="top|center"
+                        app:expandedTitleTextAppearance="@style/Toolbar.openTitleText"
+                        app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                        app:title="@{weatherRealTime.cityName}">
 
 
-                        <TextView
-                            android:id="@+id/weatherTemperatureTv"
+                        <ImageView
+
+                            android:id="@+id/weatherCoverIv"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="@{weatherRealTime.temp}"
-                            android:textColor="@color/white"
-                            android:textSize="64sp"
-                            android:textStyle="bold" />
+                            android:layout_height="match_parent"
+                            android:fitsSystemWindows="true"
+                            android:scaleType="centerCrop"
+                            app:layout_collapseMode="parallax"
+                            shenben:bigCover="@{weatherRealTime.cover}" />
 
+                        <androidx.appcompat.widget.Toolbar
+                            android:id="@+id/weatherToolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            app:layout_collapseMode="pin"
+                            app:navigationIcon="@mipmap/back"
+                            app:titleTextColor="@color/white" />
 
-                        <TextView
-                            android:id="@+id/weatherMsgTv"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="@{weatherRealTime.bodyTempAndSkycon}"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:layout_collapseMode="none" />
-                    </LinearLayout>
-                </com.google.android.material.appbar.CollapsingToolbarLayout>
+                            android:orientation="vertical"
+                            app:layout_collapseMode="none">
 
-            </com.google.android.material.appbar.AppBarLayout>
 
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:elevation="10dp"
-                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                            <TextView
+                                android:id="@+id/weatherTemperatureTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@{weatherRealTime.temp}"
+                                android:textColor="@color/white"
+                                android:textSize="64sp"
+                                android:textStyle="bold" />
 
-                <RelativeLayout
+
+                            <TextView
+                                android:id="@+id/weatherMsgTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="@{weatherRealTime.bodyTempAndSkycon}"
+                                android:textColor="@color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_collapseMode="none" />
+                        </LinearLayout>
+                    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:elevation="10dp"
+                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/wpCard"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:background="@color/white">
+                        android:layout_height="wrap_content">
 
-                        <RelativeLayout
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/wpCard"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:id="@+id/weatherPredictionTv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_marginBottom="20dp"
-                                android:text="预报"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/weatherPredictionRv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/weatherPredictionTv"
-
-                                android:overScrollMode="never" />
-                        </RelativeLayout>
-                    </com.google.android.material.card.MaterialCardView>
-
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_below="@id/wpCard">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-
-                            <TextView
-                                android:id="@+id/weatherLiftTv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_marginBottom="20dp"
-                                android:text="生活指数"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:background="@color/white">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/weatherLiftTv">
+                                android:layout_height="wrap_content">
 
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
+                                <TextView
+                                    android:id="@+id/weatherPredictionTv"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:layout_marginLeft="10dp">
-
-                                    <ImageView
-                                        android:id="@+id/wlColdIv"
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginRight="20dp"
-                                        android:src="@mipmap/ganmaofashao" />
-
-                                    <TextView
-                                        android:id="@+id/wlColdTv"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_toEndOf="@id/wlColdIv"
-                                        android:text="感冒"
-                                        android:textSize="16sp" />
-
-                                    <TextView
-                                        android:id="@+id/wlColdIndexTv"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/wlColdTv"
-                                        android:layout_toEndOf="@id/wlColdIv"
-                                        android:text="@{weatherRealTime.coldRiskIndex}"
-                                        android:textSize="18sp"
-                                        android:textStyle="bold" />
-                                </RelativeLayout>
-
-
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
                                     android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="45dp">
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:text="预报"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
 
-                                    <ImageView
-                                        android:id="@+id/wlDressingIv"
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginRight="20dp"
-                                        android:src="@mipmap/yifu" />
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/weatherPredictionRv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/weatherPredictionTv"
 
-                                    <TextView
-                                        android:id="@+id/wlDressingTv"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_toEndOf="@id/wlDressingIv"
-                                        android:text="穿衣"
-                                        android:textSize="16sp" />
+                                    android:overScrollMode="never" />
+                            </RelativeLayout>
+                        </com.google.android.material.card.MaterialCardView>
 
-                                    <TextView
-                                        android:id="@+id/wlDressingIndexTv"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/wlDressingTv"
-                                        android:layout_toEndOf="@id/wlDressingIv"
-                                        android:text="@{weatherRealTime.dressingIndex}"
-                                        android:textSize="18sp"
-                                        android:textStyle="bold" />
-                                </RelativeLayout>
 
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_below="@id/wpCard">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+
+                                <TextView
+                                    android:id="@+id/weatherLiftTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:text="生活指数"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
 
                                 <RelativeLayout
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="30dp"
-                                    android:paddingBottom="20dp">
+                                    android:layout_below="@id/weatherLiftTv">
 
-                                    <ImageView
-                                        android:id="@+id/wlUltravioletIv"
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginRight="20dp"
-                                        android:src="@mipmap/humujing" />
-
-                                    <TextView
-                                        android:id="@+id/wlUltravioletTv"
+                                    <RelativeLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_toEndOf="@id/wlUltravioletIv"
-                                        android:text="实时紫外线"
-                                        android:textSize="16sp" />
+                                        android:layout_alignParentStart="true"
+                                        android:paddingLeft="10dp">
 
-                                    <TextView
-                                        android:id="@+id/wlUltravioletIndexTv"
+                                        <ImageView
+                                            android:id="@+id/wlColdIv"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginRight="20dp"
+                                            android:src="@mipmap/ganmaofashao" />
+
+                                        <TextView
+                                            android:id="@+id/wlColdTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_toEndOf="@id/wlColdIv"
+                                            android:text="感冒"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:id="@+id/wlColdIndexTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/wlColdTv"
+                                            android:layout_toEndOf="@id/wlColdIv"
+                                            android:text="@{weatherRealTime.coldRiskIndex}"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+
+
+                                    <RelativeLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_below="@+id/wlUltravioletTv"
-                                        android:layout_toEndOf="@id/wlUltravioletIv"
-                                        android:text="@{weatherRealTime.ultravioletIndex}"
-                                        android:textSize="18sp"
-                                        android:textStyle="bold" />
-                                </RelativeLayout>
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_marginLeft="10dp"
+                                       android:paddingRight="10dp">
+
+                                        <ImageView
+                                            android:id="@+id/wlDressingIv"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_centerVertical="true"
+                                           android:layout_marginLeft="20dp"
+                                            android:layout_toEndOf="@id/wlDressingIndexTv"
+                                            android:src="@mipmap/yifu" />
+
+                                        <TextView
+                                            android:id="@+id/wlDressingTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="穿衣"
+                                            android:layout_toStartOf="@id/wlDressingIv"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:id="@+id/wlDressingIndexTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/wlDressingTv"
+                                            android:text="@{weatherRealTime.dressingIndex}"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
 
 
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="50dp"
-
-                                    android:paddingBottom="20dp">
-
-                                    <ImageView
-                                        android:id="@+id/wlCarIv"
-                                        android:layout_width="40dp"
-                                        android:layout_height="40dp"
-                                        android:layout_centerVertical="true"
-                                        android:layout_marginRight="10dp"
-                                        android:src="@mipmap/xiche" />
-
-                                    <TextView
-                                        android:id="@+id/wlCarTv"
+                                    <RelativeLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_toEndOf="@id/wlCarIv"
-                                        android:text="洗车"
-                                        android:textSize="16sp" />
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentBottom="true"
 
-                                    <TextView
-                                        android:id="@+id/wlCarIndexTv"
+                                        android:paddingLeft="10dp"
+                                        android:paddingBottom="20dp">
+
+                                        <ImageView
+                                            android:id="@+id/wlUltravioletIv"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginRight="20dp"
+                                            android:src="@mipmap/humujing" />
+
+                                        <TextView
+                                            android:id="@+id/wlUltravioletTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_toEndOf="@id/wlUltravioletIv"
+                                            android:text="实时紫外线"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:id="@+id/wlUltravioletIndexTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/wlUltravioletTv"
+                                            android:layout_toEndOf="@id/wlUltravioletIv"
+                                            android:text="@{weatherRealTime.ultravioletIndex}"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
+
+
+                                    <RelativeLayout
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_below="@+id/wlCarTv"
-                                        android:layout_toEndOf="@id/wlCarIv"
-                                        android:text="@{weatherRealTime.carWashing}"
-                                        android:textSize="18sp"
-                                        android:textStyle="bold" />
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_marginLeft="10dp"
+                                        android:paddingRight="10dp"
+
+                                        android:paddingBottom="20dp">
+
+                                        <ImageView
+                                            android:id="@+id/wlCarIv"
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:layout_centerVertical="true"
+                                            android:layout_marginLeft="20dp"
+                                            android:layout_toEndOf="@id/wlCarIndexTv"
+                                            android:src="@mipmap/xiche" />
+
+                                        <TextView
+                                            android:id="@+id/wlCarTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_toStartOf="@id/wlCarIv"
+                                            android:text="洗车"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:id="@+id/wlCarIndexTv"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@+id/wlCarTv"
+                                            android:text="@{weatherRealTime.carWashing}"
+                                            android:textSize="18sp"
+                                            android:textStyle="bold" />
+                                    </RelativeLayout>
                                 </RelativeLayout>
                             </RelativeLayout>
-                        </RelativeLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                        </com.google.android.material.card.MaterialCardView>
 
-                </RelativeLayout>
-            </androidx.core.widget.NestedScrollView>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                    </RelativeLayout>
+                </androidx.core.widget.NestedScrollView>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-</com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/weatherNavigationView"
             android:layout_width="match_parent"

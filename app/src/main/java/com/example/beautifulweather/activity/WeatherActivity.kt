@@ -24,6 +24,7 @@ import com.example.beautifulweather.bean.Place
 import com.example.beautifulweather.bean.WeatherRealTimeBean
 import com.example.beautifulweather.databinding.ActivityWeatherBinding
 import com.example.beautifulweather.repository.ClickCitiesRepository
+import com.example.beautifulweather.repository.SkyRepository
 import com.example.beautifulweather.retrofit.KeypadUtil
 import com.example.beautifulweather.view.CleanHistoryDialog
 import com.example.beautifulweather.viewmode.CityViewModel
@@ -161,11 +162,11 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
             }
 
             //更新状态
-           weatherSmartRefresh.setOnRefreshLoadMoreListener(object :OnRefreshLoadMoreListener{
+            weatherSmartRefresh.setOnRefreshLoadMoreListener(object : OnRefreshLoadMoreListener {
                 override fun onRefresh(refreshLayout: RefreshLayout) {
-                    Log.d(TAG,"更新数据")
-                    vm.getWeatherRealTimeData(currentLng,currentLat)
-                    vm.getDailyData(currentLng,currentLat)
+                    Log.d(TAG, "更新数据")
+                    vm.getWeatherRealTimeData(currentLng, currentLat)
+                    vm.getDailyData(currentLng, currentLat)
                     refreshLayout.finishRefresh()
                 }
 
@@ -296,166 +297,23 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
             it.apply {
                 val temp = "${it.temperature}°C"
 
-                var cover = 0
-                var skycon = ""
-                when (it.skycon) {
-                    "CLEAR_DAY", "CLEAR_NIGHT" -> {
-                        cover = R.mipmap.weather_sunshine
-                        skycon = "晴天"
-                    }
-                    "PARTLY_CLOUDY_DAY",
-                    "PARTLY_CLOUDY_NIGHT" -> {
-                        skycon = "多云"
-                        cover = R.mipmap.weather_gale
-                    }
-                    "CLOUDY" -> {
-                        skycon = "阴天"
-                        cover = R.mipmap.weather_gale
-                    }
-                    "LIGHT_HAZE",
-                    "MODERATE_HAZE",
-                    "HEAVY_HAZE" -> {
-                        skycon = "雾霾"
-                        cover = R.mipmap.weather_gale
-                    }
-                    "FOG" -> {
-                        skycon = "阴天"
-                        cover = R.mipmap.weather_gale
-                    }
-                    "WIND" -> {
-                        skycon = "多云"
-                        cover = R.mipmap.weather_gale
-                    }
+                val sky = SkyRepository.getSky(it.skycon)
+                val cover = sky.keys.toIntArray()[0]
+                val skycon = sky[cover]
 
-                    "LIGHT_SNOW", "MODERATE_SNOW" -> {
-                        skycon = "小雪"
-                        cover = R.mipmap.weather_light_snow
-                    }
-
-                    "HEAVY_SNOW", "STORM_SNOW" -> {
-                        skycon = "大雪"
-                        cover = R.mipmap.weather_big_snow
-                    }
-
-                    "LIGHT_RAIN", "MODERATE_RAIN" -> {
-                        skycon = "小雨"
-                        cover = R.mipmap.weather_rainy_and_snow
-                    }
-
-                    "HEAVY_RAIN", "STORM_RAIN" -> {
-                        skycon = "大雨"
-                        cover = R.mipmap.weather_rainy
-                    }
-                    else -> {
-
-                    }
-                }
                 val bodyTempAndSkycon = "${skycon}|体感温度:${it.apparent_temperature}"
-                var ultravioletIndex = ""
-                var dressingIndex = ""
-                var coldRiskIndex = ""
-                var carWashingIndex = ""
-                when (it.comfort.index) {
-                    0 -> {
-                        ultravioletIndex = "无"
-                        dressingIndex = "极热"
-                        coldRiskIndex = "少发"
-                        carWashingIndex = "适宜"
-                    }
-                    1 -> {
-                        ultravioletIndex = "很弱"
-                        dressingIndex = "极热"
-                        coldRiskIndex = "少发"
-                        carWashingIndex = "适宜"
-                    }
-                    2 -> {
-                        ultravioletIndex = "很弱"
-                        dressingIndex = "很热"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "较适宜"
-                    }
-                    3 -> {
-                        ultravioletIndex = "弱"
-                        dressingIndex = "热"
-                        coldRiskIndex = "易发"
-                        carWashingIndex = "较不适宜"
 
-                    }
-                    4 -> {
-                        ultravioletIndex = "弱"
-                        dressingIndex = "温暖"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-                    5 -> {
-                        ultravioletIndex = "中等"
-                        dressingIndex = "凉爽"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-                    6 -> {
-                        ultravioletIndex = "中等"
-                        dressingIndex = "冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-                    7 -> {
-                        ultravioletIndex = "强"
-                        dressingIndex = "寒冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-                    8 -> {
-                        ultravioletIndex = "强"
-                        dressingIndex = "极冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-                    9 -> {
-                        ultravioletIndex = "很强"
-                        dressingIndex = "极冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-                    10 -> {
-                        ultravioletIndex = "很强"
-                        dressingIndex = "极冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-
-                    11 -> {
-                        ultravioletIndex = "很强"
-                        dressingIndex = "极冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-
-                    12 -> {
-                        ultravioletIndex = "很强"
-                        dressingIndex = "极冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-
-                    13 -> {
-                        ultravioletIndex = "中等"
-                        dressingIndex = "极冷"
-                        coldRiskIndex = "较易发"
-                        carWashingIndex = "不适应"
-                    }
-                    else -> {}
-                }
+                val comfortIndex = SkyRepository.getComfortIndex(it.comfort.index)
 
                 dataBinding.weatherRealTime = WeatherRealTimeBean(
                     city,
                     temp,
                     cover,
                     bodyTempAndSkycon,
-                    dressingIndex,
-                    ultravioletIndex,
-                    coldRiskIndex,
-                    carWashingIndex
+                    comfortIndex.dress,
+                    comfortIndex.ultraviolet,
+                    comfortIndex.coldSick,
+                    comfortIndex.carWash
                 )
             }
         }
