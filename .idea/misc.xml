@@ -12,7 +12,7 @@
         <entry key="app/src/main/res/layout/activity_main_success.xml" value="0.182518115942029" />
         <entry key="app/src/main/res/layout/activity_weather.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_clear_history.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_city.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_city.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_weather_nav.xml" value="0.18206521739130435" />
         <entry key="app/src/main/res/layout/item_weather_prediction.xml" value="0.25" />
         <entry key="app/src/main/res/layout/state_empty.xml" value="0.182518115942029" />

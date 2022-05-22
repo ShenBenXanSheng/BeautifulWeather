@@ -322,7 +322,7 @@
             </androidx.core.widget.NestedScrollView>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/weatherNavigationView"
             android:layout_width="match_parent"
@@ -331,6 +331,6 @@
 
         </com.google.android.material.navigation.NavigationView>
 
-</com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

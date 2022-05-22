@@ -114,7 +114,7 @@ class WeatherPredictionAdapter : RecyclerView.Adapter<WeatherPredictionAdapter.I
             SizeUtil.dip2px(30f),
             SizeUtil.dip2px(30f)
         )
-        lp.setMargins(0, 0, SizeUtil.dip2px(35f), 0)
+        lp.setMargins(0, 0, SizeUtil.dip2px(20f), 0)
 
         view.layoutParams = lp
     }

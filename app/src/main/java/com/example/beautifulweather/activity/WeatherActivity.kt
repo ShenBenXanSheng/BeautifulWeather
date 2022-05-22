@@ -147,11 +147,7 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
             weatherSmartRefresh.setEnableHeaderTranslationContent(true)
             weatherSmartRefresh.setEnableLoadMore(false)
 
-
-
         }
-
-
     }
 
     override fun initListener() {
