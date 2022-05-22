@@ -17,6 +17,11 @@
         android:background="#efefef"
         tools:context=".activity.WeatherActivity">
 
+<com.scwang.smart.refresh.layout.SmartRefreshLayout
+    android:id="@+id/weatherSmartRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -325,5 +330,7 @@
             android:layout_gravity="start">
 
         </com.google.android.material.navigation.NavigationView>
+
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>
     </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

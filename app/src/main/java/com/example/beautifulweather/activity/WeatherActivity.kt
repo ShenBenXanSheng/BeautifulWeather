@@ -29,6 +29,9 @@ import com.example.beautifulweather.view.CleanHistoryDialog
 import com.example.beautifulweather.viewmode.CityViewModel
 import com.example.beautifulweather.viewmode.WeatherViewModel
 import com.google.gson.Gson
+import com.scwang.smart.refresh.header.MaterialHeader
+import com.scwang.smart.refresh.layout.api.RefreshLayout
+import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
 import kotlinx.android.synthetic.main.activity_city.*
 import kotlinx.android.synthetic.main.activity_city.view.*
 import kotlinx.android.synthetic.main.activity_city_success.*
@@ -74,6 +77,8 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
 
     lateinit var navContent: View
 
+    private var currentLng = 0.0
+    private var currentLat = 0.0
     val historyList = mutableListOf<Place>()
     override fun initView() {
         super.initView()
@@ -88,8 +93,10 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
         //给viewModel传入经纬度
         if (parcelableExtra != null) {
             Log.d(TAG, "精度${parcelableExtra.lng} 纬度${parcelableExtra.lat}")
-            vm.getWeatherRealTimeData(parcelableExtra.lng, parcelableExtra.lat)
-            vm.getDailyData(parcelableExtra.lng, parcelableExtra.lat)
+            currentLng = parcelableExtra.lng
+            currentLat = parcelableExtra.lat
+            vm.getWeatherRealTimeData(currentLng, currentLat)
+            vm.getDailyData(currentLng, currentLat)
         }
 
         dataBinding.apply {
@@ -134,6 +141,14 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
 
             navLayout.activityContainerFL.addView(navContent)
             weatherNavigationView.addView(navLayout)
+
+
+            weatherSmartRefresh.setRefreshHeader(MaterialHeader(this@WeatherActivity))
+            weatherSmartRefresh.setEnableHeaderTranslationContent(true)
+            weatherSmartRefresh.setEnableLoadMore(false)
+
+
+
         }
 
 
@@ -148,6 +163,21 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
                 cityViewModel.sharedPreferences.edit().clear().apply()
                 startActivity(intent)
             }
+
+            //更新状态
+           weatherSmartRefresh.setOnRefreshLoadMoreListener(object :OnRefreshLoadMoreListener{
+                override fun onRefresh(refreshLayout: RefreshLayout) {
+                    Log.d(TAG,"更新数据")
+                    vm.getWeatherRealTimeData(currentLng,currentLat)
+                    vm.getDailyData(currentLng,currentLat)
+                    refreshLayout.finishRefresh()
+                }
+
+                override fun onLoadMore(refreshLayout: RefreshLayout) {
+
+                }
+
+            })
         }
 
         //侧滑菜单的聊天框
@@ -197,6 +227,8 @@ class WeatherActivity : BaseViewModelActivity<WeatherViewModel>() {
             cityEditCleanIv.visibility = View.GONE
 
             navLayout.citySearchEd.setText("")
+
+
         }
 
         //清楚历史记录
